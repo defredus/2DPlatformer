@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _jumpPower;
 
 	private float _wallJumpCooldown;
+	private float _horizontalInput;
 
 	public void Awake()
 	{
@@ -22,23 +23,23 @@ public class PlayerMovement : MonoBehaviour
 	}
 	public void Update()
 	{
-		float horizontalInput = Input.GetAxis("Horizontal");
+		_horizontalInput = Input.GetAxis("Horizontal");
 		
 		//Flip-flop
-		if(horizontalInput > 0.01f)
+		if(_horizontalInput > 0.01f)
 			transform.localScale = Vector3.one;
-		if(horizontalInput < -0.01f)
+		if(_horizontalInput < -0.01f)
 			transform.localScale = new Vector3(-1,1,1);
 
 
 		//Set animator parameters
-		_anim.SetBool("isRunning", horizontalInput != 0);
+		_anim.SetBool("isRunning", _horizontalInput != 0);
 		_anim.SetBool("isGrounded", IsGrounded());
 
 		//wall jump logic
 		if(_wallJumpCooldown > 0.2f)
 		{
-			_body.linearVelocity = new Vector2(horizontalInput * _speed, _body.linearVelocity.y);
+			_body.linearVelocity = new Vector2(_horizontalInput * _speed, _body.linearVelocity.y);
 
 			if (OnWall() && !IsGrounded()){
 				_body.gravityScale = 0;
@@ -55,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
+	public bool CanAttack()
+	{
+		return  _horizontalInput == 0 && IsGrounded() && !OnWall();
+	}
 	private void Jump()
 	{
 		if (IsGrounded())
@@ -69,9 +74,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
-	{
-	}
 	private bool IsGrounded() {
 		RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, 
 			_boxCollider.bounds.size, 0, Vector2.down, 0.1f, _groundLayer);
