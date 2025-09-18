@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 		float movementSpeed = _speed * Time.deltaTime * _direction;
 		transform.Translate(movementSpeed, 0, 0);
 
-		_lifeTime = Time.deltaTime;
+		_lifeTime += Time.deltaTime;
 		if (_lifeTime > 5) gameObject.SetActive(false);
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +46,6 @@ public class Projectile : MonoBehaviour
 	}
 	private void Deactivate()
 	{
-
+		gameObject.SetActive(false);
 	}
 }
