@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 0.5
+  _speed: 2
   _range: 10
   _checkDelay: 1
   _playerLayer:
