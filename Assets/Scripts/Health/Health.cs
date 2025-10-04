@@ -1,19 +1,24 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Health : MonoBehaviour
 {
 	[Header ("Health")]
     [SerializeField] private float _startingHealth;
-	private Animator _animator;
 	private bool _dead;
     public float _currentHealth { get; private set; }
 
 	[Header("iFrames")]
 	[SerializeField] private float _iFramesDuration;
 	[SerializeField] private int _numberOfFlashes;
-	private SpriteRenderer _spriteRenderer;
 
+	[Header("Components")]
+	private SpriteRenderer _spriteRenderer;
+	private Animator _animator;
+	[SerializeField] private Behaviour[] _components;
+
+	private bool _invulnerable;
 
 	private void Awake()
 	{
@@ -27,6 +32,7 @@ public class Health : MonoBehaviour
 	}
 	public void TakeDamage(float damage)
 	{
+		if (_invulnerable) return; 
 		_currentHealth = Mathf.Clamp(_currentHealth - damage, 0, _startingHealth);
 		if( _currentHealth > 0)
 		{
@@ -38,13 +44,18 @@ public class Health : MonoBehaviour
 			if (!_dead)
 			{
 				_animator.SetTrigger("die");
-				GetComponent<PlayerMovement>().enabled = false;
+
+				foreach (Behaviour component in _components)
+					component.enabled = false;
+				
 				_dead = true;
+
 			}
 		}
 	}
 	private IEnumerator Invunerability()
 	{
+		_invulnerable = true;
 		Physics2D.IgnoreLayerCollision(8, 9, true); //8 and 9 - layers
 		for (int i = 0; i < _numberOfFlashes; i++)
 		{
@@ -54,5 +65,10 @@ public class Health : MonoBehaviour
 			yield return new WaitForSeconds(_iFramesDuration / (_numberOfFlashes * 2));
 		}
 		Physics2D.IgnoreLayerCollision(8, 9, false);
+		_invulnerable = false;
+	}
+	private void Diactivate()
+	{
+		gameObject.SetActive(false);
 	}
 }

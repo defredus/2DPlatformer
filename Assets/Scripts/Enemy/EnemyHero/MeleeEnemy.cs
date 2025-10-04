@@ -2,22 +2,28 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
+	[Header("Attack parametrs")]
 	[SerializeField] private float _attackCooldown;
 	[SerializeField] private float _range;
 	[SerializeField] private float _damage;
+
+	[Header("Collider parametrs")]
 	[SerializeField] private float _colliderDistance;
+	[SerializeField] private BoxCollider2D _boxCollider;
+
+	[Header("Player Layer")]
 	[SerializeField] private LayerMask _playerLayer;
 	private float _cooldownTimer = Mathf.Infinity;
 
+	[Header("Components")]
 	private Animator _animator;
-	private BoxCollider2D _boxCollider;
-
+	private EnemyPatrol _enemyPatrol;
 	private Health _playerHealth;
 
 	private void Awake()
 	{
-		_boxCollider = GetComponent<BoxCollider2D>();
 		_animator = GetComponent<Animator>();	
+		_enemyPatrol = GetComponentInParent<EnemyPatrol>();
 	}
 	private void Update()
 	{
@@ -30,6 +36,8 @@ public class MeleeEnemy : MonoBehaviour
 				_animator.SetTrigger("MeleeAttack");
 			}
 		}
+		if (_enemyPatrol != null)
+			_enemyPatrol.enabled = !IsPlayerInSign();
 	}
 	private bool IsPlayerInSign()
 	{

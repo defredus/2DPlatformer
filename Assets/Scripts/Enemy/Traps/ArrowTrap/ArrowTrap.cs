@@ -19,7 +19,7 @@ public class ArrowTrap : MonoBehaviour
         _cooldownTimer = 0;
         _arrows[FindArrows()].transform.position = _firePoint.position;
         _arrows[FindArrows()]
-            .GetComponent<ArrowProjectile>()
+            .GetComponent<EnemyProjectile>()
             .ActiveProjectile();
 
 	}

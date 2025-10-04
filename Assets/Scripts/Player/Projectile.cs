@@ -29,6 +29,14 @@ public class Projectile : MonoBehaviour
 		_hit = true;
 		_boxCollieder.enabled = false;
 		_animator.SetTrigger("Explore");
+
+		if (collision.tag == "Enemy")
+			collision.GetComponent<Health>().TakeDamage(1);
+	}
+	public void ActiveProjectile()
+	{
+		_lifeTime = 0;
+		gameObject.SetActive(true);
 	}
 	public void SetDirection(float direction)
 	{
