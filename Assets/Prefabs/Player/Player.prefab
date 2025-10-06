@@ -209,6 +209,8 @@ MonoBehaviour:
     m_Bits: 128
   _speed: 10
   _jumpPower: 20
+  _coyoteTime: 0.25
+  _jumpSound: {fileID: 0}
 --- !u!114 &5692124716188240226
 MonoBehaviour:
   m_ObjectHideFlags: 0
