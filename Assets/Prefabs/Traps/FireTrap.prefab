@@ -173,3 +173,4 @@ MonoBehaviour:
   _damage: 1
   _activationDelay: 2
   _activeTime: 3
+  _fireSound: {fileID: 8300000, guid: 3ce995f5170bc91439d601524585c4a2, type: 3}

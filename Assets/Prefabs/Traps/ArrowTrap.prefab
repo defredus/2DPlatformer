@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &647921128807106834
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &721360092090631160
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,8 +619,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &732025152345312480
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,8 +797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &1525378988771646402
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,8 +975,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &1542868224792103362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,8 +1153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &3500642925517684239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,8 +1331,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &3605863091170844270
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,8 +1550,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &5453939073655856292
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,8 +1759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &8588388864303962623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1937,8 +1937,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _speed: 5
-  _resetTime: 5
+  speed: 0
+  resetTime: 0
 --- !u!1 &8949670393683891842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,3 +1999,4 @@ MonoBehaviour:
   - {fileID: 1525378988771646402}
   - {fileID: 667146974569364218}
   - {fileID: 732025152345312480}
+  _arrowSound: {fileID: 8300000, guid: eca9ccc451508b941a18917e7f645b61, type: 3}

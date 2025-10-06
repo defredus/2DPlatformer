@@ -8,9 +8,15 @@ public class SpikeHead : EnemyDamage
 	[SerializeField] private float _checkDelay;
 	[SerializeField] private LayerMask _playerLayer;
 	private float _checkTimer;
+	
+	[Header("Movement")]
 	private bool _attacking;
 	private Vector3 _destination;
 	private Vector3[] _directions = new Vector3[4];
+
+	[Header("SFx")]
+	[SerializeField] private AudioClip _spikeHeadHitSound;
+
 
 	private void Update()
 	{
@@ -29,6 +35,7 @@ public class SpikeHead : EnemyDamage
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		SoundManager.Instance.PlaySound(_spikeHeadHitSound);
 		base.OnTriggerEnter2D(collision);
 		Stop();//Stop spike once he  hits smth
 		

@@ -20,6 +20,9 @@ public class MeleeEnemy : MonoBehaviour
 	private EnemyPatrol _enemyPatrol;
 	private Health _playerHealth;
 
+	[Header("Audio Parametrs")]
+	[SerializeField] private AudioClip _swordSound;
+
 	private void Awake()
 	{
 		_animator = GetComponent<Animator>();	
@@ -30,10 +33,11 @@ public class MeleeEnemy : MonoBehaviour
 		_cooldownTimer += Time.deltaTime;
 		if (IsPlayerInSign())
 		{
-			if (_cooldownTimer >= _attackCooldown)
+			if (_cooldownTimer >= _attackCooldown && _playerHealth._currentHealth > 0)
 			{
 				_cooldownTimer = 0;
 				_animator.SetTrigger("MeleeAttack");
+				SoundManager.Instance.PlaySound(_swordSound);
 			}
 		}
 		if (_enemyPatrol != null)

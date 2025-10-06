@@ -177,6 +177,8 @@ MonoBehaviour:
   _numberOfFlashes: 0
   _components:
   - {fileID: 6586346220012531726}
+  _deathSound: {fileID: 8300000, guid: fe3f7ef90acdcbe41a19844a09b08a69, type: 3}
+  _hurtSound: {fileID: 8300000, guid: 20fbf46a7e3398247a1d9e5e5f5c88af, type: 3}
 --- !u!114 &6586346220012531726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +199,7 @@ MonoBehaviour:
   _playerLayer:
     serializedVersion: 2
     m_Bits: 256
+  _swordSound: {fileID: 8300000, guid: 7c7cf88ee2c74124d9a975bfda6a58bf, type: 3}
 --- !u!114 &3316907419295891732
 MonoBehaviour:
   m_ObjectHideFlags: 0

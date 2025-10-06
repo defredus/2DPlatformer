@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 	private float _wallJumpCooldown;
 	private float _horizontalInput;
 
+	[Header("Sound Parametrs")]
+	[SerializeField] private AudioClip _jumpSound;
 	public void Awake()
 	{
 		//Grab references from Unity
@@ -48,7 +50,12 @@ public class PlayerMovement : MonoBehaviour
 				_body.gravityScale = 7;
 			}
 			if (Input.GetKey(KeyCode.Space))
+			{
 				Jump();
+				if(Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+					SoundManager.Instance.PlaySound(_jumpSound);
+
+			}
 		}
 		else
 		{
