@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
 			{
 				foreach (Behaviour component in _components)
 					component.enabled = false;
-				_animator.SetBool("isGrounded", true);
+				_animator.SetBool("isGroundedd", true);
 				_animator.SetTrigger("die");
 				SoundManager.Instance.PlaySound(_deathSound);
 				_dead = true;
