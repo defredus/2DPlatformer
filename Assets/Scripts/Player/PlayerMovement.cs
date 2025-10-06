@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private float _coyoteTime;
 	private float _coyoteCounter;
 
+	[Header("Multiple Jump")]
+	[SerializeField] private int _extraJumps;
+	private int _jumpCounter;
+
 	[Header("SFX")]
 	[SerializeField] private AudioClip _jumpSound;
 	public void Awake()
@@ -72,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
 			if (IsGrounded())
 			{
 				_coyoteCounter = _coyoteTime;
+				_jumpCounter = _extraJumps;
 			}
 			else
 			{
@@ -86,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 	private void Jump()
 	{
-		if (_coyoteCounter < 0 && !OnWall()) return;
+		if (_coyoteCounter < 0 && !OnWall() && _jumpCounter <= 0) return;
 		
 		SoundManager.Instance.PlaySound(_jumpSound);
 
@@ -101,6 +106,14 @@ public class PlayerMovement : MonoBehaviour
 				if(_coyoteCounter > 0)
 				{
 					_body.linearVelocity = new Vector2(_body.linearVelocity.x, _jumpPower);
+				}
+				else
+				{
+					if(_jumpCounter > 0)
+					{
+						_body.linearVelocity = new Vector2(_body.linearVelocity.x, _jumpPower);
+						_jumpCounter--;
+					}
 				}
 			}
 			_coyoteCounter = 0;

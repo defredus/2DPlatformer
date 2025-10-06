@@ -210,6 +210,7 @@ MonoBehaviour:
   _speed: 10
   _jumpPower: 20
   _coyoteTime: 0.25
+  _extraJumps: 1
   _jumpSound: {fileID: 0}
 --- !u!114 &5692124716188240226
 MonoBehaviour:
