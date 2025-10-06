@@ -23,6 +23,10 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private int _extraJumps;
 	private int _jumpCounter;
 
+	[Header("Wall Jumping")]
+	[SerializeField] private float _wallJumpX; //Horiaontal
+	[SerializeField] private float _wallJumpY; //Vertical
+
 	[Header("SFX")]
 	[SerializeField] private AudioClip _jumpSound;
 	public void Awake()
@@ -122,7 +126,11 @@ public class PlayerMovement : MonoBehaviour
 
 	private void WallJump()
 	{
-
+		_body.AddForce(new Vector2(
+			-Mathf.Sign
+			(transform.localScale.x)*_wallJumpX, 
+			_wallJumpY ));
+		_wallJumpCooldown = 0;
 	}
 	private bool IsGrounded() {
 		RaycastHit2D raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, 

@@ -48,11 +48,11 @@ public class Health : MonoBehaviour
 		{
 			if (!_dead)
 			{
-				_animator.SetTrigger("die");
-				SoundManager.Instance.PlaySound(_deathSound);
 				foreach (Behaviour component in _components)
 					component.enabled = false;
-				
+				_animator.SetBool("isGrounded", true);
+				_animator.SetTrigger("die");
+				SoundManager.Instance.PlaySound(_deathSound);
 				_dead = true;
 
 			}

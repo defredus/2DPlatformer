@@ -211,6 +211,8 @@ MonoBehaviour:
   _jumpPower: 20
   _coyoteTime: 0.25
   _extraJumps: 1
+  _wallJumpX: 1500
+  _wallJumpY: 750
   _jumpSound: {fileID: 0}
 --- !u!114 &5692124716188240226
 MonoBehaviour:
