@@ -5,10 +5,11 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] private AudioClip _checkpointSound;
     private Transform _currentCheckpoint;
     private Health _playerHealth;
-
+	private UIManager _uIManager; 
 
 	private void Awake()
-	{
+	{	
+		_uIManager = FindFirstObjectByType<UIManager>();
 		_playerHealth = GetComponent<Health>();
 	}
 
@@ -22,8 +23,15 @@ public class PlayerRespawn : MonoBehaviour
 			collision.GetComponent<Animator>().SetTrigger("Appear");
 		}
 	}
-	public void Respawn()
+	public void CheckRespawn()
 	{
+		if(_currentCheckpoint == null)
+		{
+			//Show game menu
+			_uIManager.GameOver();
+			return;
+		}
+
 		transform.position = _currentCheckpoint.position;
 		_playerHealth.Respawn();
 
