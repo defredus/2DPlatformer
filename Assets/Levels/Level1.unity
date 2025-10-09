@@ -1963,6 +1963,7 @@ GameObject:
   - component: {fileID: 371125412}
   - component: {fileID: 371125411}
   - component: {fileID: 371125410}
+  - component: {fileID: 371125414}
   m_Layer: 5
   m_Name: Sound
   m_TagString: Untagged
@@ -2035,7 +2036,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2109420846}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: SoundVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2161,6 +2162,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371125408}
   m_CullTransparentMesh: 1
+--- !u!114 &371125414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371125408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107f01cdedea0d5459b88d3a954a5fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volumeName: soundVolume
+  _textIntro: 'SOUND: '
 --- !u!1 &383869933
 GameObject:
   m_ObjectHideFlags: 0
@@ -9250,6 +9265,7 @@ GameObject:
   - component: {fileID: 1486366637}
   - component: {fileID: 1486366636}
   - component: {fileID: 1486366635}
+  - component: {fileID: 1486366639}
   m_Layer: 5
   m_Name: Music
   m_TagString: Untagged
@@ -9322,7 +9338,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2109420846}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: MusicVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9448,6 +9464,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486366633}
   m_CullTransparentMesh: 1
+--- !u!114 &1486366639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486366633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 107f01cdedea0d5459b88d3a954a5fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volumeName: musicVolume
+  _textIntro: 'MUSIC: '
 --- !u!114 &1513246947 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 758557275218517228, guid: d8338c9b9b2cb6b478b1db9b6177b9c5, type: 3}

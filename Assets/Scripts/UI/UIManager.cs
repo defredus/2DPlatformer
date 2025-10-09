@@ -19,9 +19,7 @@ public class UIManager : MonoBehaviour
 	private void Update()
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
-			PauseGame(true);
-		else
-			PauseGame(false);
+			PauseGame(!_pauseScreen.activeInHierarchy);
 	}
 	#region Game Over
 	public void GameOver()
@@ -48,13 +46,24 @@ public class UIManager : MonoBehaviour
 	#endregion
 
 	#region Pause
-	private void PauseGame(bool status)
+	public void PauseGame(bool status)
 	{
 		_pauseScreen.SetActive(status);
 		if(status)
 			Time.timeScale = 0;
 		else
 			Time.timeScale = 1;
+	}
+	#endregion
+
+	#region SoundAndMusic
+	public void SoundVolume()
+	{
+		SoundManager.Instance.ChangeSoundVolume(0.2f);
+	}
+	public void MusicVolume()
+	{
+		SoundManager.Instance.ChangeMusicVolume(0.2f);
 	}
 	#endregion
 }
